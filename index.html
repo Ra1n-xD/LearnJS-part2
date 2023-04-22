@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LearnJS 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        h1 {
+            margin: 10px;
+            color: #fff;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .accordion {
+            background-color: #ffffff;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: 1px solid rgb(165, 165, 165);
+            border-radius: 10px;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            transition: 0.4s;
+        }
+
+        .accordion.active,
+        .accordion:hover {
+            background-color: #e7f1ff;
+            color: #0c63e4;
+
+        }
+
+        .panel {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .panel.show {
+            max-height: 500px;
+        }
+
+        .btn-section {
+            background-color: #f0efef;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.4s;
+            font-size: 15px;
+        }
+
+        .btn:hover {
+            background-color: #3e8e41;
+        }
+
+        .actual {
+            border: 2px solid rgb(255, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Задачки LearnJS - Часть 2 "Браузер: документ, события, интерфейсы"</h1>
+    </header>
+    <div class="btn-section">
+        <button class="accordion">Глава 1. Документ</button>
+        <div class="panel">
+            <a href="page1.html" class="btn">Задание 1</a>
+
+        </div>
+
+        <button class="accordion">Глава 2. Введение в события</button>
+        <div class="panel">
+            <a href="#" class="btn">Задание 1</a>
+        </div>
+
+        <button class="accordion">Глава 3. Интерфейсные события</button>
+        <div class="panel">
+            <a href="#" class="btn">Задание 1</a>
+        </div>
+    </div>
+
+    <script>
+        let acc = document.querySelectorAll(".accordion");
+
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                let panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
