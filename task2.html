@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Считаем потомков</h1>
+    <b>
+      Напишите код, который выведет каждый элемент списка li:
+      <li>Какой в нём текст (без поддерева)?</li>
+      <li>Какое число потомков – всех вложенных(включая глубоко вложенные) ?</li>
+    </b>
+
+    <ul>
+      <li>
+        Животные
+        <ul>
+          <li>
+            Млекопитающие
+            <ul>
+              <li>Коровы</li>
+              <li>Ослы</li>
+              <li>Собаки</li>
+              <li>Тигры</li>
+            </ul>
+          </li>
+          <li>
+            Другие
+            <ul>
+              <li>Змеи</li>
+              <li>Птицы</li>
+              <li>Ящерицы</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Рыбы
+        <ul>
+          <li>
+            Аквариумные
+            <ul>
+              <li>Гуппи</li>
+              <li>Рыба-ангел</li>
+            </ul>
+          </li>
+          <li>
+            Морские
+            <ul>
+              <li>Морская форель</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <script>
+      let liItem = document.body.querySelectorAll('li');
+
+      for (const item of liItem) {
+        console.log(item.firstChild.textContent.trim());
+
+        console.log(item.getElementsByTagName('li').length);
+      }
+    </script>
+  </body>
+</html>

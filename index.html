@@ -1,130 +1,209 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>LearnJS 2</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            margin: 0;
-            padding: 0;
-        }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
 
-        header {
-            background-color: #333;
-            padding: 10px;
-        }
+      header {
+        flex-shrink: 0;
+      }
 
-        h1 {
-            margin: 10px;
-            color: #fff;
-            text-align: center;
-            font-size: 30px;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
 
-        .accordion {
-            background-color: #ffffff;
-            color: #444;
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            border: 1px solid rgb(165, 165, 165);
-            border-radius: 10px;
-            text-align: left;
-            outline: none;
-            font-size: 16px;
-            transition: 0.4s;
-        }
+      header {
+        background-color: #333;
+        padding: 10px;
+      }
 
-        .accordion.active,
-        .accordion:hover {
-            background-color: #e7f1ff;
-            color: #0c63e4;
+      .main {
+        display: flex;
+        align-items: space-between;
+      }
 
-        }
+      .main .img-item {
+        margin: 0 10px;
+      }
 
-        .panel {
-            padding: 0 18px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-        }
+      .main .img-item img {
+        width: 300px;
+        height: 220px;
+        margin-bottom: 90px;
+      }
 
-        .panel.show {
-            max-height: 500px;
-        }
+      h1 {
+        margin: 10px;
+        color: #fff;
+        text-align: center;
+        font-size: 30px;
+      }
 
-        .btn-section {
-            background-color: #f0efef;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            padding: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+      .accordion {
+        background-color: #ffffff;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: 1px solid rgb(165, 165, 165);
+        border-radius: 10px;
+        text-align: left;
+        outline: none;
+        font-size: 16px;
+        transition: 0.4s;
+      }
 
-        .btn {
-            display: inline-block;
-            text-decoration: none;
-            margin: 10px;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.4s;
-            font-size: 15px;
-        }
+      .accordion.active,
+      .accordion:hover {
+        background-color: #e7f1ff;
+        color: #0c63e4;
+      }
 
-        .btn:hover {
-            background-color: #3e8e41;
-        }
+      .panel {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+      }
 
-        .actual {
-            border: 2px solid rgb(255, 0, 0);
-        }
+      .panel.show {
+        max-height: 500px;
+      }
+
+      .btn-section {
+        background-color: #f0efef;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        margin: 10px;
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.4s;
+        font-size: 15px;
+      }
+
+      .btn:hover {
+        background-color: #3e8e41;
+      }
+
+      .actual {
+        border: 1px solid rgba(255, 0, 0, 0.7);
+      }
+
+      footer {
+        background-color: #333;
+        padding: 30px;
+        text-align: center;
+        margin-top: auto;
+      }
+
+      footer p {
+        color: white;
+        font-size: 25px;
+        margin: 0;
+      }
+
+      footer span {
+        display: block;
+        color: rgb(165, 165, 165);
+        font-size: 15px;
+        margin-top: 10px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>Задачки LearnJS - Часть 2 "Браузер: документ, события, интерфейсы"</h1>
+      <h1>Задачки LearnJS - Часть 2 "Браузер: документ, события, интерфейсы"</h1>
     </header>
-    <div class="btn-section">
-        <button class="accordion">Глава 1. Документ</button>
+    <div class="main">
+      <div class="img-item"><img src="nelox.webp" alt="Картинка слева" /> <img src="boss.webp" alt="Картинка слева" /></div>
+
+      <div class="btn-section">
+        <button class="accordion actual">Глава 1. Документ</button>
         <div class="panel">
-            <a href="sync 26.04.23.js" class="btn">Задание 1</a>
+          <a href="task1.html" target="_blank" class="btn actual">Выделите ячейки по диагонали</a>
+          <a href="task2.html" target="_blank" class="btn actual">Считаем потомков</a>
         </div>
 
         <button class="accordion">Глава 2. Введение в события</button>
         <div class="panel">
-            <a href="#" class="btn">Задание 1</a>
+          <a href="#" class="btn">Задание 1</a>
         </div>
 
-        <button class="accordion">Глава 3. Интерфейсные события</button>
+        <button class="accordion">-</button>
         <div class="panel">
-            <a href="#" class="btn">Задание 1</a>
+          <a href="#" class="btn">Задание 1</a>
         </div>
+
+        <button class="accordion">-</button>
+        <div class="panel">
+          <a href="#" class="btn">Задание 1</a>
+        </div>
+
+        <button class="accordion">-</button>
+        <div class="panel">
+          <a href="#" class="btn">Задание 1</a>
+        </div>
+      </div>
+
+      <div class="img-item"><img src="buhboss.webp" alt="Картинка справа" /><img src="lox.webp" alt="Картинка справа" /></div>
     </div>
 
+    <footer>
+      <p>Смотреть на задачи выделеные <b style="color: red">КРАСНОЙ</b> рамкой</p>
+      <span>6Seniors corporation</span>
+    </footer>
+
     <script>
-        let acc = document.querySelectorAll(".accordion");
+      let acc = document.querySelectorAll('.accordion');
 
-        for (let i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                let panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                }
-            });
+      for (let i = 0; i < acc.length; i++) {
+        acc[i].addEventListener('click', function () {
+          this.classList.toggle('active');
+          let panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+          }
+        });
+
+        const images = document.getElementsByTagName('img');
+
+        for (let i = 0; i < images.length; i++) {
+          const randomDirection = Math.floor(Math.random() * 2);
+          let randomRotation = Math.floor(Math.random() * 360);
+
+          if (randomDirection === 1) {
+            randomRotation = -randomRotation;
+          }
+
+          images[i].style.transform = `rotate(${randomRotation}deg)`;
         }
+      }
     </script>
-</body>
-
+  </body>
 </html>
