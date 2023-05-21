@@ -191,19 +191,19 @@
             panel.style.maxHeight = panel.scrollHeight + 'px';
           }
         });
+      }
 
-        const images = document.getElementsByTagName('img');
+      const images = document.getElementsByTagName('img');
 
-        for (let i = 0; i < images.length; i++) {
-          const randomDirection = Math.floor(Math.random() * 2);
-          let randomRotation = Math.floor(Math.random() * 360);
+      for (let i = 0; i < images.length; i++) {
+        const randomDirection = Math.floor(Math.random() * 2);
+        let randomRotation = Math.floor(Math.random() * 360);
 
-          if (randomDirection === 1) {
-            randomRotation = -randomRotation;
-          }
-
-          images[i].style.transform = `rotate(${randomRotation}deg)`;
+        if (randomDirection === 1) {
+          randomRotation = -randomRotation;
         }
+
+        images[i].style.transform = `rotate(${randomRotation}deg)`;
       }
     </script>
   </body>
