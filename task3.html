@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Сделайте внешние ссылки оранжевыми</h1>
+    <b>
+      Ссылка является внешней, если:
+      <li>Её href содержит ://</li>
+      <li>Но не начинается с http://internal.com</li>
+    </b>
+
+    <a name="list">the list</a>
+    <ul>
+      <li><a href="http://google.com">http://google.com</a></li>
+      <li><a href="/tutorial">/tutorial.html</a></li>
+      <li><a href="local/path">local/path</a></li>
+      <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+      <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+      <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+    </ul>
+
+    <script>
+      let links = document.querySelectorAll('a');
+
+      links.forEach((item) => {
+        if (item.hasAttribute('href') && item.getAttribute('href').includes('://') && !item.getAttribute('href').includes('http://internal.com')) item.style.color = 'orange';
+      });
+    </script>
+  </body>
+</html>
