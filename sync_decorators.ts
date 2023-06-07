@@ -97,9 +97,12 @@ function trackChanges(target: any) {
 
     const handler = {
       set: function (obj: any, prop: string, value: string | number) {
-        console.log(`Параметр "${prop}" был изменен с ${obj[prop]} на ${value}`);
-        obj[prop] = value;
-        return true;
+        if (typeof value === 'string' || typeof value === 'number') {
+          console.log(`Параметр "${prop}" был изменен с ${obj[prop]} на ${value}`);
+          obj[prop] = value;
+          return true;
+        }
+        return false;
       }
     };
 
