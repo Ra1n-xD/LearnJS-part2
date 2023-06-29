@@ -122,3 +122,44 @@ class Aboba {
 const person = new Aboba('Artem', 21);
 person.name = 'Max';
 person.age = 25;
+
+// ----------------------------------------------------
+function JsonName(name?: string) {
+  return function (target: any, propertyKey: string) {
+    const key = `__${propertyKey}`;
+    target[key] = name;
+  };
+}
+
+class Test {
+  @JsonName('user_name')
+  userName!: string;
+  @JsonName('last_name')
+  lastName!: string;
+  @JsonName('first_name')
+  firstName!: string;
+  @JsonName()
+  age!: number;
+
+  constructor(params: Test) {
+    Object.assign(this, params);
+  }
+
+  toServer?() {
+    const pythonObj: any = {};
+
+    Object.keys(this).forEach((key) => {
+      const jsonNameKey = `__${key}`;
+      const name = this[jsonNameKey] || key;
+      pythonObj[name] = this[key];
+    });
+
+    return pythonObj;
+  }
+}
+
+const instance1 = new Test({ userName: 'Я', lastName: 'ебал', firstName: 'декораторы', age: 25 });
+
+console.log(instance1);
+console.log(instance1.toServer?.());
+// Output: { user_name: 'John', last_name: 'Doe', first_name: 'John', age: 25 }
